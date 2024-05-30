@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/qs@6.10.2/dist/qs.js"></script>
+  </head>
+  <body>
+    <script>
+      async function urlParam() {
+        const res = await axios.post('/login/add', {
+          name: '李白',
+          age: 123,
+        });
+        console.log(res);
+      }
+      urlParam();
+
+      async function emptyParam() {
+        const res = await axios.post('/login/add', {});
+        console.log(res);
+      }
+      // 可以用useClass指定注入的class 还可以用useValue 来直接注入对象
+      // 动态生成对象，则是使用useFactory
+      // 如果一个常用的provide和module，使用@Global 来设置为全局
+      emptyParam();
+    </script>
+  </body>
+</html>
